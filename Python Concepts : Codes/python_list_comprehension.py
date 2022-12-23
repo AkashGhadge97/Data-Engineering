@@ -1,4 +1,4 @@
-#List Cokprehension
+#List Comprehension
 # Write a program to generate a list of 10 numbers
 result= []
 for i in range(1,11):
