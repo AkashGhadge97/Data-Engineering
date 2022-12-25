@@ -264,5 +264,82 @@ Ans.
 		
 		print(string[::-1])
 		
+**Q31. How can you delete entire string at once?**
+
+Ans.  Using del command
+     
+**Q32. What is escape sequence?**
+
+Ans. An escape sequence is a sequence of characters that, when used inside a character or string, does not represent itself but is converted into another character or series of characters.
+
+**Q33. How can you print the below string?**
+```
+'iNeuron's Big Data Course'
+```
+
+And. print('iNeuron\'s Big Data Course')
+
+**Q34. What is a list in Python?**
+
+Ans. List is a sequential data type which is used to store elements of diffrent type in a sequential manner
+
+**Q35. How can you create a list in Python?**
+
+Ans.
+     newList =[1,2,3,4,5]
+
+**Q36. How can we access the elements in a list?**
+
+Ans. using index
+     print(newList[1])
+
+**Q37. Write a code to access the word "iNeuron" from the given list.**
+```
+lst = [1,2,3,"Hi",[45,54, "iNeuron"], "Big Data"]
+``` 
+
+Ans. 
+
+    lst = [1,2,3,"Hi",[45,54, "iNeuron"], "Big Data"]
+    
+    print(lst[4][2])
+
+**Q38. Take a list as an input from the user and find the length of the list.**
+
+Ans.
+
+
+	lst=[]
+
+	no = int(input("Enter the number of elements : "))
+
+	for i in range(0,no):
+
+   	el= int(input("Enter the element-"))
+	
+	lst.append(el)
+    
+	print("Length of the list : ",len(lst))
+
+
+**Q39. Add the word "Big" in the 3rd index of the given list.**
+```
+lst = ["Welcome", "to", "Data", "course"]
+```
+
+Ans. 
+
+	lst = ["Welcome", "to", "Data", "course"]
+
+	lst.insert(2,"Big")
+
+	print(lst)
+
+
+**Q40. What is a tuple? How is it different from list?**
+
+Ans. Tuple is a sequential data type which is used to store elements of diffrent type in a sequential manner. Tuple is immutable while list is mutable.
+
+		
 
      
