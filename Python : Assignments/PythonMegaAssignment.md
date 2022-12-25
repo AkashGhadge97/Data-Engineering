@@ -186,4 +186,35 @@ Ans.
             else:
             
                 print(i)
+                
+**Q26. What is a string? How can we declare string in Python?**
+Ans. String is a sequence of characters.
+     ```name = "Akash"```
+
+**Q27. How can we access the string using its index?**
+Ans. using index
+     ```print(name[0)```
+
+**Q28. Write a code to get the desired output of the following**
+```
+string = "Big Data iNeuron"
+desired_output = "iNeuron"
+```
+Ans.    ``` string = "Big Data iNeuron"
+	 print(string.split(' ')[2])```
+
+**Q29. Write a code to get the desired output of the following**
+```
+string = "Big Data iNeuron"
+desired_output = "norueNi"
+```
+Ans. 
+	 ```string = "Big Data iNeuron"
+	 print(string.split(' ')[2][::-1])```
+
+**Q30. Resverse the string given in the above question.**
+Ans. 
+		```string = "Big Data iNeuron"
+		print(string[::-1])```
+
      
