@@ -32,33 +32,55 @@ Ans. 1. Machine Learning and Artificial Intelligence
 **Q5. What are variable and how can we declare them?**
 
 Ans. Variable is the name of a memory location. The synatac for variable declaration is as follows
-     ``` <variable_name> = <variable_value>
+     ``` 
+     <variable_name> = <variable_value>
     e.g   name = "iNeuron"
-          age = 14```
+          age = 14
+	  ```
+	  
 **Q6. How can we take an input from the user in Python?**
 Ans. By using input() function
-   ``` e.g name = input('Enter your name :')```
+   ``` 
+   e.g name = input('Enter your name :')
+   ```
 **Q7. What is the default datatype of the value that has been taken as an input using input() function?**
+
 Ans. 'str' (String)
+
 **Q8. What is type casting?**
-Ans. Type casting the process of converting the varible/value from one datatype to another datatype/
+
+Ans. Type casting the process of converting the varible/value from one datatype to another datatype
+
 **Q9. Can we take more than one input from the user using single input() function? If yes, how? If no, why?**
+
 Ans. Yes we can take the multiple inputs using single input() function followed by split() function.
+
 **Q10. What are keywords?**
+
 Ans. Keywords are the in-build  reserved words which have specific meaning and can be used for syntactical use only and cannot be used for user defined variables.
+
 **Q11. Can we use keywords as a variable? Support your answer with reason.**
+
 Ans. We can't use keywords as a variable because keywords are reserved for syantactical use only and not for used defined variables.
+
 **Q12. What is indentation? What's the use of indentaion in Python?**
+
 Ans. Indentation is the space/spaces at the beginning of the code line. Indentation is used in python to indicate the block of code.
+
 **Q13. How can we throw some output in Python?**
+
 Ans. Using print() function
    e.g print("Welocme to iNeuron")
    
    
 **Q14. What are operators in Python?**
-Ans. Operatoes are the spacial symbols which are used to carr out operaions on variables or values/
+
+Ans. Operatoes are the spacial symbols which are used to carr out operaions on variables or values
+
 **Q15. What is difference between / and // operators?**
+
 Ans.  '/' is used for float division. '//' is used for integer division
+
 **Q16. Write a code that gives following as an output**.
 ```
 iNeuroniNeuroniNeuroniNeuron
@@ -85,7 +107,9 @@ Ans.
         
     
 **Q18. What are boolean operator?**
+
 Ans. Boolean operators are reserved words "AND", "OR", "NOT" which can be used to evaluate multiple expressions and achieve more precise results
+
 **Q19. What will the output of the following?**
 ```
 1 or 0
@@ -105,12 +129,16 @@ Ans.
         1 or 0 or 0  - 1
         
 **Q20. What are conditional statements in Python?**
+
 Ans. Conditional Statements are used for handle conditions for decision making in Python. 
      Conditional Statmenst = if, if..else , nested if..else 
+     
 **Q21. What is use of 'if', 'elif' and 'else' keywords?**
+
 Ans. - if ised to evaluate an enclosed condiion
      - elsif is used to evaluate an enclosed condtion when previous consditions are failed
      - else is use dto display default output when all the previous conditions are resulted as false
+     
 **Q22. Write a code to take the age of person as an input and if age >= 18 display "I can vote". If age is < 18 display "I can't vote"**.
 Ans.
     
@@ -188,20 +216,33 @@ Ans.
                 print(i)
                 
 **Q26. What is a string? How can we declare string in Python?**
+
+
 Ans. String is a sequence of characters.
-     ```name = "Akash"```
+    
+     name = "Akash"
+    
 
 **Q27. How can we access the string using its index?**
+
 Ans. using index
-     ```print(name[0)```
+     
+     
+     print(name[0)
+     
 
 **Q28. Write a code to get the desired output of the following**
 ```
 string = "Big Data iNeuron"
 desired_output = "iNeuron"
 ```
-Ans.    ``` string = "Big Data iNeuron"
-	 print(string.split(' ')[2])```
+
+Ans.     
+	string = "Big Data iNeuron"
+	
+	print(string.split(' ')[2])
+	
+	
 
 **Q29. Write a code to get the desired output of the following**
 ```
@@ -209,12 +250,19 @@ string = "Big Data iNeuron"
 desired_output = "norueNi"
 ```
 Ans. 
-	 ```string = "Big Data iNeuron"
-	 print(string.split(' ')[2][::-1])```
+	 
+	 string = "Big Data iNeuron"
+	 
+	 print(string.split(' ')[2][::-1])
+	 
 
 **Q30. Resverse the string given in the above question.**
+
 Ans. 
-		```string = "Big Data iNeuron"
-		print(string[::-1])```
+		
+		string = "Big Data iNeuron"
+		
+		print(string[::-1])
+		
 
      
