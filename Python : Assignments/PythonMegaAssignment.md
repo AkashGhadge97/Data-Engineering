@@ -472,7 +472,73 @@ Ans.
 	var['Age'] = 25
 	print(var.keys())
 
+**Q61. Create a nested dictionary and access all the element in the inner dictionary.**
 
+Ans.
+	
+	dict1 = {'data': {'Name': 'John', 'Age': 21}}
+	print(dict1['data'])
+
+**Q62. What is the use of get() function?**
+
+Ans. To get the value of dictionary key
+
+**Q63. What is the use of items() function?**
+
+Ans.  To get all the key,value pairs from dictionary
+
+**Q64. What is the use of pop() function?**
+
+Ans. To remove the key,value pair of dictionary key
+
+**Q65. What is the use of popitems() function?**
+
+Ans. The popitem() method removes the item that was last inserted into the dictionary. 
+
+**Q66. What is the use of keys() function?**
+
+Ans. To display all the keys from dictionary
+
+**Q67. What is the use of values() function?**
+
+Ans. To display all the values from dictionary
+
+**Q68. What are loops in Python?**
+
+Ans.  A loop is an instruction that repeats multiple times as long as some condition is met
+
+**Q69. How many type of loop are there in Python?**
+
+Ans. There are two types of loops in python. For loop and While Loop
+
+**Q70. What is the difference between for and while loops?**
+
+Ans. A for loop is a single-line command that will be executed repeatedly. While loops can be single-lined or contain multiple commands for a single condition.
+    For loop is used when number of iterations are known. While loop is used when number of iterations are unknown. 
+
+**Q71. What is the use of continue statement?**
+
+Ans.  Continue statement is used to jump to ther next iretaion bypassing the remaining statements from the loop block
+
+**Q72. What is the use of break statement?**
+
+Ans. Break is used to break the loop and go out of it.
+
+**Q73. What is the use of pass statement?**
+
+Ans. The pass statement is used as a placeholder for future code. When the pass statement is executed, nothing happens, but you avoid getting an error when empty code is not allowed.
+
+**Q74. What is the use of range() function?**
+
+Ans. The range() function returns a sequence of numbers, starting from 0 by default, and increments by 1 (by default), and stops before a specified number.
+
+**Q75. How can you loop over a dictionary?**
+
+Ans.
+
+	dict1 = {'Name': 'John', 'Age': 21, 'date': '1-1-2022'}
+	for i in dict1.items():
+		print(i)
 		
 
      
