@@ -411,6 +411,68 @@ Ans.
 
 Ans. clear() will remove all the elements from the set
 
+**Q51. What is frozen set?**
+
+Ans.  Frozen set in python is an immutable set.
+
+**Q52. How is frozen set different from set?**
+
+Ans. Set is mutable while frozen set is immutable
+
+**Q53. What is union() in sets? Explain via code.**
+
+Ans. Union of two given sets is the set which contains all the elements of both the sets.
+
+	 set1 = {1,2,3,4}
+	 set2 = {2,3,6,7}
+	 print(set1.union(set2))
+
+**Q54. What is intersection() in sets? Explain via code.**
+
+Ans. intersection of two given sets is the set which contains the common elements of both the sets.
+
+	 set1 = {1,2,3,4}
+	 set2 = {2,3,6,7}
+	 print(set1.intersection(set2))  
+	 
+**Q55. What is dictionary in Python?**
+
+Ans. Dictionaries are used to store data values in key:value pairs. A dictionary is a collection which is ordered*, changeable and do not allow duplicates
+
+**Q56. How is dictionary different from all other data structures.**
+
+Ans. Dictionary contains key,value pairs while other data structures contains only values
+
+**Q57. How can we delare a dictionary in Python?**
+
+Ans. dict1 = {}
+
+**Q58. What will the output of the following?**
+```
+var = {}
+print(type(var))
+```
+Ans.  <class 'dict'>
+
+**Q59. How can we add an element in a dictionary?**
+
+Ans.
+
+	var = {}
+	var['Name'] = 'Akash'
+	var['Age'] = 25
+	print(var)
+
+**Q60. Create a dictionary and access all the values in that dictionary.**
+
+Ans.
+
+	var = {}
+	var['Name'] = 'Akash'
+	var['Age'] = 25
+	print(var.keys())
+
+
 		
 
      
