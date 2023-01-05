@@ -340,6 +340,77 @@ Ans.
 
 Ans. Tuple is a sequential data type which is used to store elements of diffrent type in a sequential manner. Tuple is immutable while list is mutable.
 
+
+**Q41. How can you create a tuple in Python?**
+
+Ans.
+
+    newTuple = ('1','Test', 2.3,'New')
+
+**Q42. Create a tuple and try to add your name in the tuple. Are you able to do it? Support your answer with reason.**
+
+Ans. 	We cannot add anything in the tuple as tuple is immutable.
+
+**Q43. Can two tuple be appended. If yes, write a code for it. If not, why?**
+
+Ans.    YES
+
+	tup1 = (1,2,3)
+	tup2 = (4,5,6)
+	tup3 = tup1 + tup2
+	print(tup3)
+
+**Q44. Take a tuple as an input and print the count of elements in it.**
+
+Ans. 
+	tup1 = (1,2,3)
+	print(len(tup1))
+
+**Q45. What are sets in Python?**
+
+Ans. Sets are collection of unique data.
+
+**Q46. How can you create a set?**
+
+Ans .
+
+    	 #Method-1
+	 set1 = {1,1,2,3,4,5,3,4,5,6}
+	 print(set1)
+	 
+	 
+	 #Method2
+     	 set1 = set([1,1,2,3,4,1,2,3,5])
+	 print(set1)
+
+**Q47. Create a set and add "iNeuron" in your set.**
+
+Ans.
+
+	set1 = set([])
+	set1.add('iNeuron')
+	print(set1)
+
+**Q48. Try to add multiple values using add() function.**
+
+Ans.
+
+	set1 = set([])
+	set1.add('iNeuron','Hello','Bye')
+	print(set1)
+	
+	It will give error as add() function accepts only one arguement
+
+**Q49. How is update() different from add()?**
+
+Ans.
+      The update() method updates the current set, by adding items from another set (or any other iterable). 
+      add() method simply add one elemnst at a time  current set. update() can add multiple elements at a time in current set.
+
+**Q50. What is clear() in sets?**
+
+Ans. clear() will remove all the elements from the set
+
 		
 
      
