@@ -540,5 +540,85 @@ Ans.
 	for i in dict1.items():
 		print(i)
 		
+**Q76. Write a Python program to find the factorial of a given number.**
+
+Ans.
+
+		def factorial(no):
+		if no == 1 or no == 0:
+			return no
+		else:
+			no =  no * factorial(no-1);
+		return no
+    
+		no =  8
+		print(factorial(no))
+
+**Q77. Write a Python program to calculate the simple interest. Formula to calculate simple interest is SI = (P*R*T)/100**
+
+Ans.
+
+		P = 1000
+		R = 8
+		T = 2
+		SI = (P*R*T)/100
+		print('Simple Interest : ', SI)
+
+
+**Q78. Write a Python program to calculate the compound interest. Formula of compound interest is A = P(1+ R/100)^t.**
+
+Ans.
+
+		P = 1000
+		R = 8
+		T = 2
+		A = P*(1+ R/100)**T
+		print('Compund Interest : ', A)
+
+**Q79. Write a Python program to check if a number is prime or not.**
+
+Ans.
+
+		import math
+
+		def isPrime(no):
+			if(no == 0):
+				res = "Neither Prime nor a composite number"
+				return res
+				
+			if (no == 1):
+				res = "Not Prime"
+				return res
+				
+			for i in range(2,math.ceil(no/2)):
+				if(no % i  == 0):
+					flag = 1
+					break
+				else:
+					flag = 0
+
+			res = "Prime" if flag == 0 else "Not Prime"
+			return res
+			
+		no = 101
+		print(isPrime(no))
+
+**Q80. Write a Python program to check Armstrong Number.**
+
+Ans.
+
+		no = 371
+		stringNo = str(no)
+		lst =[]
+		sum = 0
+		for i in range(0,len(stringNo)):
+			sum = sum + (int(stringNo[i])**3)
+
+		if(no == sum):
+			print(no, " is an Armstrong Number")
+		else:
+			print(no, "is not an Armstrong Number")
+
+		
 
      
