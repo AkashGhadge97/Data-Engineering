@@ -619,6 +619,276 @@ Ans.
 		else:
 			print(no, "is not an Armstrong Number")
 
+
+### Coding problems
+
+**Q81. Write a Python program to find the n-th Fibonacci Number.**
+
+Ans.
+
+		def Fibonacci(no):
+			if no <= 0 :
+				print ("Wrong Input.Please enter number greater than 0")
+				
+			elif no == 1:
+				return 0
+				
+			elif no == 2:
+				return 1
+				
+			else:
+				return Fibonacci(no-1) + Fibonacci(no-2)
+
+		no = 10
+		print(Fibonacci(no))
+        
+
+**Q82. Write a Python program to interchange the first and last element in a list.**
+
+Ans.
+
+		lst = [1,2,3,4,5]
+		temp = lst[0]
+		lst[0] = lst[len(lst)-1]
+		lst[len(lst)-1] = temp
+		print(lst)
+
+**Q83. Write a Python program to swap two elements in a list.**
+
+Ans.
+
+		def swapPositions(lst,pos1,pos2):
+			lst[pos1],lst[pos2] = lst[pos2] ,lst[pos1]
+			return lst
+			
+		lst = [1,2,3,4,5,6,7]
+		print(swapPositions(lst,2,4))
+
+**Q84. Write a Python program to find N largest element from a list.**
+
+Ans.
+
+		lst = [3,12,1,23,56,34,78,98]
+		lst.sort(reverse=True)
+		print("3rd Largest Element :", lst[2])
+
+**Q85. Write a Python program to find cumulative sum of a list.**
+
+Ans.
+
+		lst = [4, 10, 15, 18, 20]
+		for i in range(1,len(lst)):
+			lst[i] = lst[i-1]+lst[i]
+		print(lst)
 		
+
+**Q86. Write a Python program to check if a string is palindrome or not.**
+
+Ans.
+
+		newStr =  'ABAB'
+		res = "Palindrome" if (newStr[::-1] == newStr) else "Not Palindrome"
+		print(res)
+
+**Q87. Write a Python program to remove i'th element from a string**.
+
+Ans.
+
+		str = "TestString"
+		str= str.replace(str[1],'')
+		print(str)
+
+
+**Q88. Write a Python program to check if a substring is present in a given string**.
+
+Ans.
+
+		str = "TestString"
+
+		if "Stri" in str:
+			print("Substring")
+		else:
+			print("Not a Substring")
+
+**Q89. Write a Python program to find words which are greater than given length k.**
+
+Ans.
+
+		newString = "Big data is a combination of structured, semistructured and unstructured data collected by organizations that can be mined for information and used in machine learning projects, predictive modeling and other advanced analytics applications."
+
+		length = 4
+		lst= newString.split(" ")
+		newLst =[]
+		for i in lst:
+			if len(i) > length:
+				newLst.append(i)
+		print(newLst)
+
+
+
+**Q90. Write a Python program to extract unquire dictionary values.**
+
+Ans.
+
+		dict = {'Name' : 'John' , 'Age' : 25, 'Name' : 'John', 'Age': 25}
+		print(dict.values())
+
+**Q91. Write a Python program to merge two dictionary.**
+
+Ans.
+
+		dict1 = {'Name' : 'John' , 'Age' : 25}
+		dict2 = {'Address' : 'Pune'}
+		dict1.update(dict2)
+		print(dict1)
+
+**Q92. Write a Python program to convert a list of tuples into dictionary.**
+```
+Input : [('Sachin', 10), ('MSD', 7), ('Kohli', 18), ('Rohit', 45)]
+Output : {'Sachin': 10, 'MSD': 7, 'Kohli': 18, 'Rohit': 45}
+```
+
+Ans.
+
+		lst = [('Sachin', 10), ('MSD', 7), ('Kohli', 18), ('Rohit', 45)]
+		newDict= {}
+		for i in lst:
+			newDict[i[0]]= i[1]
+		print(newDict)
+
+**Q93. Write a Python program to create a list of tuples from given list having number and its cube in each tuple.**
+```
+Input: list = [9, 5, 6]
+Output: [(9, 729), (5, 125), (6, 216)]
+```
+
+Ans.
+
+
+		lst = [9, 5, 6]
+		newLst= []
+		for i in lst:
+			tup =(i, i**3)
+			newLst.append(tup)
+		print(newLst)
+
+
+**Q94. Write a Python program to get all combinations of 2 tuples.**
+```
+Input : test_tuple1 = (7, 2), test_tuple2 = (7, 8)
+Output : [(7, 7), (7, 8), (2, 7), (2, 8), (7, 7), (7, 2), (8, 7), (8, 2)]
+```
+
+Ans.
+
+
+		test_tuple1 = (7, 2) 
+		test_tuple2 = (7, 8)
+		lst=[]
+		lst.append(tuple([test_tuple1[0],test_tuple2[0]]))
+		lst.append(tuple([test_tuple1[0],test_tuple2[1]]))
+		lst.append(tuple([test_tuple1[1],test_tuple2[0]]))
+		lst.append(tuple([test_tuple1[1],test_tuple2[1]]))
+
+		lst.append(tuple([test_tuple2[0],test_tuple1[0]]))
+		lst.append(tuple([test_tuple2[0],test_tuple1[1]]))
+		lst.append(tuple([test_tuple2[1],test_tuple1[0]]))
+		lst.append(tuple([test_tuple2[1],test_tuple1[1]]))
+
+		print(lst)
+
+**Q95. Write a Python program to sort a list of tuples by second item.**
+```
+Input : [('for', 24), ('Geeks', 8), ('Geeks', 30)] 
+Output : [('Geeks', 8), ('for', 24), ('Geeks', 30)]
+```
+
+Ans.
+
+		def Sort(lst):
+			lst.sort(key = lambda a : a[1])
+			return lst
+
+		lst = [('for', 24), ('Geeks', 8), ('Geeks', 30)] 
+		print(Sort(lst))
+
+**Q96. Write a python program to print below pattern.**
+```
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
+```
+
+Ans.
+
+		for i in range(1,6):
+			print("* "*i)
+			
+**Q97. Write a python program to print below pattern**.
+```
+    *
+   **
+  ***
+ ****
+*****
+```
+
+Ans.
+
+		j=1
+		for i in range(4,-1,-1):
+			print(" "*i + "*"*j)
+			j+=1
+
+**Q98. Write a python program to print below pattern.**
+```
+    * 
+   * * 
+  * * * 
+ * * * * 
+* * * * * 
+```
+Ans.
+
+		i=1
+		for j in range(4,-1,-1):
+			print(" "*j + "* "*i)
+			i+=1
+
+
+**Q99. Write a python program to print below pattern.**
+```
+1 
+1 2 
+1 2 3 
+1 2 3 4 
+1 2 3 4 5
+```
+
+Ans.
+
+		for i in range(1,6):
+			for j in range(1,i+1):
+				print(j,end=' ')
+			print()
+
+**Q100. Write a python program to print below pattern.**
+```
+A 
+B B 
+C C C 
+D D D D 
+E E E E E 
+```
+
+Ans.
+
+		lst = ['A','B','C','D','E']
+		for i in range(0,len(lst)):
+			for j in range(0,i+1):
+				print(lst[i],end=' ')
+			print()
 
      
