@@ -1,6 +1,5 @@
 ## Python OOP Assignment
-**Q1. What is the purpose of Python's OOP?
-**
+**Q1. What is the purpose of Python's OOP?**
 
 Ans. In Python, object-orineted programming is a programming paradigm which uses the conecpt of object and classes. The main aim of oop is to implement real-world entities programmatically.
 
