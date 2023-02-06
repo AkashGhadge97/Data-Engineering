@@ -2,5 +2,6 @@
 
 1. Python
 2. Pandas
-3. Hadoop
-4. SQL
+3. Data Warehouse
+4. Hadoop
+5. SQL
