@@ -29,3 +29,23 @@ _**3. docker run -p HOSTPORT:CONTAINERPORT IMAGE**_ - Start a new container by m
 _**4. docker run -d IMAGE**_ - Start a container in background e.g _docker run -d mysql_
 
 _**5. docker run --hostname HOSTNAME IMAGE**_ - Start a container by assigbing it a new name e.g _docker run --hostname dbserver mysql_
+
+## Manage Containers
+
+_**1. docker ps**_ - Show a list of running containers
+
+_**2. docker ps -a**_ - Show a list of all containers
+
+_**3. docker rm CONTAINER**_ -  Delete a container
+
+_**4. docker CONTAINER prune**_ - Delete a stopped container
+
+_**5. docker stop CONTAINER**_ - Stop a running container
+
+_**6. docker start CONTAINER**_ - Start a stopped container
+
+_**7. docker exec -t CONTAINER EXECUTABLE**_ - Start a shell inside a running container e.g _docker exec -it web bash_
+
+_**8. docker rename OLD_NAME NEW_NAME**_ - Rename a container e.g _docker rename mysql mysqlnew_
+
+_**9. docker commit CONTAINER**_ - Create an image out of container
