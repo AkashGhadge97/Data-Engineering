@@ -6,4 +6,6 @@ Q.2    SELECT name FROM  city WHERE countrycode = 'USA' AND population > 120000;
 
 Q.3    SELECT *FROM CITY;
 
-Q.4    
+Q.4    SELECT *FROM CITY WHERE ID = 1661
+
+Q.5    
