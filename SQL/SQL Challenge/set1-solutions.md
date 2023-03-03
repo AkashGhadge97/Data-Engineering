@@ -16,4 +16,7 @@ Q.7    SELECT city,state FROM station;
 
        SELECT GROUP_CONCAT(city) as Cities , GROUP_CONCAT(state) as States from station
        
-Q.8    
+Q.8    SELECT DISTINCT
+                     CASE WHEN (ID % 2 = 0) THEN city
+                     END as city_name
+       FROM station 
