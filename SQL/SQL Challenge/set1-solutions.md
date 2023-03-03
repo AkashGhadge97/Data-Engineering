@@ -36,3 +36,13 @@ Q.8
                      CASE WHEN (ID % 2 = 0) THEN city
                      END as city_name
        FROM station 
+       
+Q.9
+
+       SELECT COUNT(city) -COUNT(DISTINCT city) as CityNumDiff FROM station
+       
+Q.10
+
+       select city, length(city) from station where length(city) = (select min(length(city)) from station ) order by city limit 1;
+       
+       select city, length(city) from station where length(city) = (select max(length(city)) from station ) order by city limit 1;
