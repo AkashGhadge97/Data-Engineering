@@ -11,3 +11,9 @@ Q.4    SELECT *FROM CITY WHERE ID = 1661
 Q.5    SELECT *FROM CITY WHERE COUNTRYCODE = 'JPN'
 
 Q.6    SELECT NAME FROM CITY WHERE COUNTRYCODE = 'JPN'
+
+Q.7    SELECT city,state FROM station;
+
+       SELECT GROUP_CONCAT(city) as Cities , GROUP_CONCAT(state) as States from station
+       
+Q.8    
