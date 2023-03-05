@@ -56,7 +56,7 @@ Q.11
          WHEN (city like 'o%') THEN city
          WHEN (city like 'u%') THEN city
 	END as CityName
-    FROM station ORDER BY CityName
+    FROM station ORDER BY CityName;
     
     SELECT DISTINCT city FROM station 
     WHERE city LIKE 'a%' OR 
