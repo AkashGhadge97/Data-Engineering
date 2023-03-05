@@ -57,6 +57,14 @@ Q.11
          WHEN (city like 'u%') THEN city
 	END as CityName
     FROM station ORDER BY CityName
+    
+    SELECT DISTINCT city FROM station 
+    WHERE city LIKE 'a%' OR 
+          city LIKE 'e%' OR 
+	  city LIKE 'i%' OR 
+	  city LIKE 'o%' OR 
+	  city LIKE 'u%' 
+    ORDER BY city;
 
 Q.12  
 
