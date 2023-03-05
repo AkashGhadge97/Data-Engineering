@@ -46,3 +46,14 @@ Q.10
        select city, length(city) from station where length(city) = (select min(length(city)) from station ) order by city limit 1;
        
        select city, length(city) from station where length(city) = (select max(length(city)) from station ) order by city limit 1;
+       
+Q.11  
+       
+       SELECT DISTINCT 
+	CASE WHEN (city like 'a%') THEN city
+         WHEN (city like 'e%') THEN city
+         WHEN (city like 'i%') THEN city
+         WHEN (city like 'o%') THEN city
+         WHEN (city like 'u%') THEN city
+	END as CityName
+    FROM station ORDER BY CityName
