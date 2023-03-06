@@ -79,3 +79,13 @@ Q.13
       		city LIKE 'o%' OR 
       		city LIKE 'u%' 
 	) ORDER BY city;
+	
+Q.14
+
+	SELECT DISTINCT city FROM station WHERE city NOT IN (SELECT DISTINCT city FROM station 
+	WHERE city LIKE '%a' OR 
+		  city LIKE '%e' OR 
+	      city LIKE '%i' OR 
+	      city LIKE '%o' OR 
+	      city LIKE '%u' 
+	) ORDER BY city;
