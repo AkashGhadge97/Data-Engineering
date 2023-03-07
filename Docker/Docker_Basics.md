@@ -32,4 +32,10 @@
 - With containers, it becomes easier for teams across different units, such as development, QA and Operations to work seamlessly across   applications.
 - You can deploy Docker containers anywhere, on any physical and virtual machines and even on the cloud.
 
+## Components of Docker
+
+- Docker Engine : It is used for building Docker images and creating Docker containers.
+- Docker Hub : This is the registry which is used to host various Docker images
+- Docker Compose : This is used to define applications using multiple Docker containers.
+
 
