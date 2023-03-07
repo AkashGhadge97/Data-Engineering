@@ -34,8 +34,8 @@
 
 ## Components of Docker
 
-- Docker Engine : It is used for building Docker images and creating Docker containers.
-- Docker Hub : This is the registry which is used to host various Docker images
-- Docker Compose : This is used to define applications using multiple Docker containers.
+- **Docker Engine** : It is used for building Docker images and creating Docker containers.
+- **Docker Hub** : This is the registry which is used to host various Docker images
+- **Docker Compose** : This is used to define applications using multiple Docker containers.
 
 
