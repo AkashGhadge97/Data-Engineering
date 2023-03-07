@@ -7,3 +7,4 @@
 5. SQL
 6. Docker
 7. Apache Airflow
+8. Hive
