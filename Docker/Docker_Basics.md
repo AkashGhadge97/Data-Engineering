@@ -6,6 +6,7 @@
 - Docker is a software platform that allows us to build, test and deploy applications quickly.
 - Docker packages software inti stadardized units called as containers
 - Docker can help us in easy deployment and scaling
+- In a nutshell, Docker is a container management service
 
 ## What is a Dockerfile ?
 
