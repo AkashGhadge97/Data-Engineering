@@ -18,4 +18,10 @@
 - Docker images are read-only files and include several instructions that need to be executed to create a Docker container.
 - Docker image is sharable and generally pushed on dockerhub in order to share with docker community
 
+## Docker Comtainer
+
+- The running docker image is called as docker image
+- Docker software is packaged as containers- a docker standardized unit. These containers have all the elements, such as system tools,   libraries, runtime, etc required by the software
+- Containers are isolated from each other
+
 
