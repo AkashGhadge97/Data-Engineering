@@ -7,6 +7,7 @@
 - Docker packages software inti stadardized units called as containers
 - Docker can help us in easy deployment and scaling
 - In a nutshell, Docker is a container management service
+- The whole idea of Docker is for developers to easily develop applications, ship them into containers which can then be deployed anywhere.
 
 ## What is a Dockerfile ?
 
