@@ -36,6 +36,5 @@ print(emp2.displayEmployeeCount())
 print(emp1.company)
 print(emp2.company)
 
-
 #Difference between class variable and instance variable
 
