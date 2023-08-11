@@ -20,6 +20,7 @@ class Employee:
     def displayEmployeeCount(self):
         print("Total Employee Count : ", Employee.empCount)
 
+
 #Emp1 and Emp2 are the objects of a class
 emp1 = Employee('Akash',20000)
 
