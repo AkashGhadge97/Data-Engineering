@@ -1,7 +1,9 @@
 class Employee:
     #Class variable - Global variable
+    
     company = 'Brillio'
     empCount=0
+    
     #Constructor
     def __init__(self,name,salary):
         #Instance variables
