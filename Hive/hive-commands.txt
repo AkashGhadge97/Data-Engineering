@@ -1,0 +1,2 @@
+Create Database - create database <database-name>
+Show Databases  - dshow databases;
