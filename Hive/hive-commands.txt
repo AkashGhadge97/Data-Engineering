@@ -1,2 +1,35 @@
-Create Database - create database <database-name>
-Show Databases  - dshow databases;
+# Create Database 
+  create database <database-name>
+
+# Show Databases  
+  show databases;
+
+# Create Table
+  create table department_data (dept_id int,dept_name string,manager_id int,salary int) row format delimited fields   
+  terminated by ',';
+
+# Describe Table	
+  describe department_data;
+
+# Describe Table	in detail
+  describe formatted department_data;
+
+# Loading data into internal table from local system - 
+
+	load data inpath '<path>' into department_data; 
+
+	load data inpath 'file://config/workspace/depart_data.csv' into department_data;  
+	
+# Loading data into internal table from HDFS - 
+
+	load data '<hdfs_path>' into department_data; 
+
+	load data inpath '/tmp/depart_data.csv' into department_data;  
+	
+# Show table data  
+
+  select *from  <table_name>
+
+# To show table header set below property :
+
+set hive.cli.print.header=true
