@@ -4,7 +4,7 @@
 # Show Databases  
   show databases;
 
-# Create Table
+# Create  Internal Table
   create table department_data (dept_id int,dept_name string,manager_id int,salary int) row format delimited fields   
   terminated by ',';
 
@@ -33,3 +33,10 @@
 # To show table header set below property :
 
 set hive.cli.print.header=true
+
+# Create External Table
+
+create external table department_data_external (dept_id int,dept_name string,manager_id int,salary int)
+row format delimited 
+fields terminated by ','
+location '/input_data/';
