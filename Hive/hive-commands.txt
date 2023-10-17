@@ -11,7 +11,7 @@
 # Describe Table	
   describe department_data;
 
-# Describe Table	in detail
+# Describe Table in detail
   describe formatted department_data;
 
 # Loading data into internal table from local system - 
