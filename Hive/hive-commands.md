@@ -78,3 +78,23 @@
 	select id ,name ,details['gender'] as employee_gender from employee_map_data;
 
  	select id ,name ,details['gender'] as employee_gender from employee_map_data;
+  
+## Create table from another table
+
+	create table employee_backup as select * from employee;
+
+
+## Create a table as CSV SerDe
+
+	create table csv_table 
+	(
+	name string , 
+	location string
+	) 
+	row format serde 'org.apache.hadoop.hive.serde2.OpenCSVSerde' 
+	with serdeproperties ( "separatorChar" = "," , "quoteChar"="\"", "escapeChar"= "\\") 
+	stored as textfile 
+	tblproperties("skip.header.line.count" = "1");
+
+
+	load data local inpath 'file:///config/workspace/csv_file.csv' into table csv_table;
