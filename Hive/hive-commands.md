@@ -40,7 +40,8 @@
 	row format delimited 
 	fields terminated by ','
 	location '/input_data/';
-
+## Truncate Table
+	trunacte table <table_name>
 ## Array Data Type 
 
 	create table employee
