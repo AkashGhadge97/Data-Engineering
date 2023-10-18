@@ -41,6 +41,9 @@ row format delimited
 fields terminated by ','
 location '/input_data/';
 
+# Get element by index in hive array data type
+select id, name, skills[0] as prime_skill from employee;
+
 # Array functions 
 
 select emp_id , emp_name ,
