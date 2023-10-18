@@ -40,3 +40,10 @@ create external table department_data_external (dept_id int,dept_name string,man
 row format delimited 
 fields terminated by ','
 location '/input_data/';
+
+# Array functions 
+
+select emp_id , emp_name ,
+size(emp_skills) as total_skills , 
+array_contains(emp_skills,"HADOOP") as knows_hadoop, 
+sort_array(emp_skills) as sorted_skills from employee;
