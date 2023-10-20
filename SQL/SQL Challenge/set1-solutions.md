@@ -135,4 +135,7 @@ Q.17
  
  	select distinct author_id from views where author_id = viewer_id
 
+Q.19
+
+	select round(((select count(*) from delivery where order_date = customer_pref_delivery_date)/ count(*)) * 100,2) as 	immediate_percentage from delivery;
 	
