@@ -131,4 +131,7 @@ Q.17
 	where (s.sale_date >= '2019-01-01' and s.sale_date <= '2019-03-31') and 
 	s.product_id not in ( select product_id from sales where sale_date > '2019-03-31')
 
+ Q.18
+ 	select distinct author_id from views where author_id = viewer_id
+
 	
