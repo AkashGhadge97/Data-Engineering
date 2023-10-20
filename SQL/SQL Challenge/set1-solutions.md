@@ -143,7 +143,7 @@ Q.19
 
  	WITH clicks_views as (select t1.ad_id , t1.total_clicks , t2.total_views from 
 	(select ad_id , count(action) as total_clicks from ads where action = 'Clicked' group by ad_id) t1 join
-	(select ad_id , count(action) as total_views from ads where action = 'Viewed' group by ad_id) t2 where t1.ad_id = t2.ad_id)
+	(select ad_id , count(action) as total_views from ads where action = 'Viewed' group by ad_id) t2 where t1.ad_id = 	t2.ad_id)
 	
 	select distinct a.ad_id , 
 	coalesce(round(c.total_clicks/(c.total_clicks + c. total_views)*100,2),0) as CTR
