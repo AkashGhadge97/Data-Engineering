@@ -111,7 +111,7 @@
 
  	load data local inpath 'file:///config/workspace/json_file.json' into table json_table;
 
- ## Download hive catalog jar file , if serde libraries are not imported
+## Download hive catalog jar file , if serde libraries are not imported
 
 	https://repo1.maven.org/maven2/org/apache/hive/hcatalog/hive-hcatalog-core/0.14.0/
 
@@ -119,7 +119,7 @@
 
 	add jar file:///config/workspace/hive-hcatalog-core-0.14.0.jar;
 
-# Create a table which will store data in parquet
+## Create a table which will store data in parquet
 
 	create table sales_data_pq_final                                                                                   
 	(                                                                   
@@ -127,10 +127,10 @@
 	total_sales int                                                                                                   
 	)                                                                                                                           stored as parquet;  
     
-# Load data in parquet file from another CSV 
+## Load data in parquet file from another CSV 
 	from sales_data_v2 insert overwrite table sales_data_pq_final select *;
 
-# Create a table for sales data
+## Create a table for sales data
 	create table sales_order_data_csv_v1 ( ORDERNUMBER int, QUANTITYORDERED int, PRICEEACH float, ORDERLINENUMBER int, 
         SALES float, STATUS string, QTR_ID int, MONTH_ID int, YEAR_ID int, PRODUCTLINE string, MSRP int, PRODUCTCODE 
         string, PHONE string, CITY string, STATE string, POSTALCODE string, COUNTRY string, TERRITORY string, 
@@ -139,8 +139,17 @@
 
 	load data local inpath 'file:///home/hadoop/sales_order_data.csv' into table sales_order_data_csv_v1;
  
-# Load data into table and store as ORC
+## Load data into table and store as ORC
 
 	create table sales_order_data_orc ( ORDERNUMBER int, QUANTITYORDERED int, PRICEEACH float, ORDERLINENUMBER int, 	SALES float, STATUS string, QTR_ID int, MONTH_ID int, YEAR_ID int, PRODUCTLINE string, MSRP int, PRODUCTCODE 		string, PHONE string, CITY string, STATE string, POSTALCODE string, COUNTRY string, TERRITORY string, 			CONTACTLASTNAME string, CONTACTFIRSTNAME string, DEALSIZE string ) stored as orc;
 
 	from sales_order_data_csv_v1 insert overwrite table sales_order_data_orc select *;
+
+## Hive Properties to set specific number of reducers
+
+	In order to change the average load for a reducer (in bytes):
+		set hive.exec.reducers.bytes.per.reducer=
+	In order to limit the maximum number of reducers:
+		set hive.exec.reducers.max=
+	In order to set a constant number of reducers:
+		set mapreduce.job.reduces=
