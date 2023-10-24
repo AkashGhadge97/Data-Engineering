@@ -153,3 +153,54 @@
 		set hive.exec.reducers.max=
 	In order to set a constant number of reducers:
 		set mapreduce.job.reduces=
+
+##  Set this property if doing static partition
+set hive.mapred.mode=strict;
+
+## Create table command for partition tables - for Static
+
+create table sales_data_static_part                                                                                                     
+    (                                                                                                                                       
+    ORDERNUMBER int,                                                                                                                        
+    QUANTITYORDERED int,                                                                                                                    
+    SALES float,                                                                                                                            
+    YEAR_ID int                                                                                                                             
+    )                                                                                                                                       
+    partitioned by (COUNTRY string); 
+    
+## Load data in static partition
+
+	insert overwrite table sales_data_static_part partition(country = 'USA') select 	 
+        ordernumber,quantityordered,sales,year_id from sales_order_data_orc where country = 'USA';
+
+# Set this property for dynamic partioning
+	set hive.exec.dynamic.partition.mode=nonstrict;   
+
+
+# Create dynamic partion table
+	create table sales_data_dynamic_part(
+	    ORDERNUMBER int,
+	    QUANTITYORDERED int,
+	    SALES float,
+	    YEAR_ID int)
+	    partitioned by (COUNTRY string); 
+
+# Load data in dynamic partition table
+
+	insert overwrite table sales_data_dynamic_part partition(country) select 		 
+        ordernumber,quantityordered,sales,year_id,country from sales_order_data_orc;
+  
+
+# Multilevel partition
+
+	create table sales_data_dynamic_multilevel_part_v1(
+		    ORDERNUMBER int,
+		    QUANTITYORDERED int,
+		    SALES float  
+	    )
+    	partitioned by (COUNTRY string, YEAR_ID int); 
+    
+# Load data in multilevel partitions
+
+	insert overwrite table sales_data_dynamic_multilevel_part_v1 partition(country,year_id) select 	 
+        ordernumber,quantityordered,sales,country,year_id from sales_order_data_orc;
