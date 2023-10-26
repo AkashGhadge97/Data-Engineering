@@ -1,5 +1,5 @@
 ## Create Database 
-	create database <database-name>
+	create database <database-name
 
 ## Show Databases  
   	show databases;
@@ -16,19 +16,19 @@
 
 ## Loading data into internal table from local system - 
 
-	load data inpath '<path>' into department_data; 
+	load data inpath '<path' into department_data; 
 
 	load data inpath 'file://config/workspace/depart_data.csv' into department_data;  
 	
 ## Loading data into internal table from HDFS - 
 
-	load data '<hdfs_path>' into department_data; 
+	load data '<hdfs_path' into department_data; 
 
 	load data inpath '/tmp/depart_data.csv' into department_data;  
 	
 ## Show table data  
 
-  	select *from  <table_name>
+  	select *from  <table_name
 
 ## To show table header set below property :
 
@@ -41,7 +41,7 @@
 	fields terminated by ','
 	location '/input_data/';
 ## Truncate Table
-	trunacte table <table_name>
+	trunacte table <table_name
 ## Array Data Type 
 
 	create table employee
@@ -69,7 +69,7 @@
 
 ## Map data type
 
-	create table employee_map_data (id int , name string , details map<string,string>) 
+	create table employee_map_data (id int , name string , details map<string,string) 
 	row format delimited 
 	fields terminated by ','
 	collection items terminated by '|' 
@@ -155,19 +155,19 @@
 		set mapreduce.job.reduces=
 
 ##  Set this property if doing static partition
-set hive.mapred.mode=strict;
+	set hive.mapred.mode=strict;
 
 ## Create table command for partition tables - for Static
 
-create table sales_data_static_part                                                                                                     
-    (                                                                                                                                       
-    ORDERNUMBER int,                                                                                                                        
-    QUANTITYORDERED int,                                                                                                                    
-    SALES float,                                                                                                                            
-    YEAR_ID int                                                                                                                             
-    )                                                                                                                                       
-    partitioned by (COUNTRY string); 
-    
+	create table sales_data_static_part                                                                                                     
+	    (                                                                                                                                       
+	    ORDERNUMBER int,                                                                                                                        
+	    QUANTITYORDERED int,                                                                                                                    
+	    SALES float,                                                                                                                            
+	    YEAR_ID int                                                                                                                             
+	    )                                                                                                                                       
+	    partitioned by (COUNTRY string); 
+	    
 ## Load data in static partition
 
 	insert overwrite table sales_data_static_part partition(country = 'USA') select 	 
@@ -207,76 +207,71 @@ create table sales_data_static_part
 
 ## add udf in hive shell
 
-add file /tmp/hive_class/multiply_udf.py;
+	add file /tmp/hive_class/multiply_udf.py;
 
 
 ## statement to execute python udf
 
-select transform(year_id,quantityordered) using 'python multicol_python_udf.py' as (year_id string, square int) from sales_order_data_orc
- limit 5;
+	select transform(year_id,quantityordered) using 'python multicol_python_udf.py' as (year_id string, square int) 	from sales_order_data_orc limit 5;
 
 
 ## add udf in hive shell
 
-add file /tmp/hive_class/many_column_udf.py;
+	add file /tmp/hive_class/many_column_udf.py;
 
 
 ## statement to execute python udf for multiple columns
 
-hive> select transform(country,ordernumber,quantityordered)                                                                                   
-    > using 'python many_column_udf.py' as (country string, ordernumber int, multiplied_quantity int)                                         
-    > from sales_order_data_orc limit 10;
+	select transform(country,ordernumber,quantityordered)  using 'python many_column_udf.py' as (country string, 		ordernumber int, multiplied_quantity int) from sales_order_data_orc limit 10;
     
     
 ## use below hive statements for bucketing
 
-hive> create table users                                                                                                                      
-    > (                                                                                                                                       
-    > id int,                                                                                                                                 
-    > name string,                                                                                                                            
-    > salary int,                                                                                                                             
-    > unit string                                                                                                                             
-    > )row format delimited                                                                                                                   
-    > fields terminated by ','; 
+	create table users 
+	      (                                                                                                        
+	      id int,                                                                                                               
+	      name string,                                                                                                          
+	      salary int,                                                                                                           
+	      unit string                                                                                                                  )row format delimited                                                                                                        fields terminated by ','; 
   
-load data local inpath 'file:///tmp/hive_class/users.csv' into table users;
+	load data local inpath 'file:///tmp/hive_class/users.csv' into table users;
     
-hive> create table locations                                                                                                                  
-    > (                                                                                                                                       
-    > id int,                                                                                                                                 
-    > location string                                                                                                                         
-    > )                                                                                                                                       
-    > row format delimited                                                                                                                    
-    > fields terminated by ','; 
+	create table locations                                                                                                                  
+	     (                                                                                                                                       
+	     id int,                                                                                                                                 
+	     location string                                                                                                                         
+	     )                                                                                                                                       
+	     row format delimited                                                                                                                    
+	     fields terminated by ','; 
     
-load data local inpath 'file:///tmp/hive_class/locations.csv' into table locations; 
+	load data local inpath 'file:///tmp/hive_class/locations.csv' into table locations; 
 
-set hive.enforce.bucketing=true;
+	set hive.enforce.bucketing=true;
     
     
- hive> create table buck_users                                                                                                                 
-    > (                                                                                                                                       
-    > id int,                                                                                                                                 
-    > name string,                                                                                                                            
-    > salary int,                                                                                                                             
-    > unit string                                                                                                                             
-    > )                                                                                                                                       
-    > clustered by (id)                                                                                                                       
-    > sorted by (id)                                                                                                                          
-    > into 2 buckets;
+ create table buck_users                                                                                                                 
+     (                                                                                                                                       
+     id int,                                                                                                                                 
+     name string,                                                                                                                            
+     salary int,                                                                                                                             
+     unit string                                                                                                                             
+     )                                                                                                                                       
+     clustered by (id)                                                                                                                       
+     sorted by (id)                                                                                                                          
+     into 2 buckets;
     
-insert overwrite table buck_users select * from users;
+	insert overwrite table buck_users select * from users;
+	    
+	 create table buck_locations                                                                                                             
+	     (                                                                                                                                       
+	     id int,                                                                                                                                 
+	     location string                                                                                                                         
+	     )                                                                                                                                       
+	     clustered by (id)                                                                                                                       
+	     sorted by (id)                                                                                                                          
+	     into 2 buckets; 
     
-hive> create table buck_locations                                                                                                             
-    > (                                                                                                                                       
-    > id int,                                                                                                                                 
-    > location string                                                                                                                         
-    > )                                                                                                                                       
-    > clustered by (id)                                                                                                                       
-    > sorted by (id)                                                                                                                          
-    > into 2 buckets; 
-    
- insert overwrite table buck_locations select * from locations;
+	 insert overwrite table buck_locations select * from locations;
  
  
  
@@ -285,41 +280,41 @@ hive> create table buck_locations
 Reduce-Side Join
 ------------------------------------------------------------------------------------------------------------------------------
 
-SET hive.auto.convert.join=false;
-SELECT * FROM buck_users u INNER JOIN buck_locations l ON u.id = l.id;
-
-Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 1
+	SET hive.auto.convert.join=false;
+	SELECT * FROM buck_users u INNER JOIN buck_locations l ON u.id = l.id;
+	
+	Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 1
 
 ------------------------------------------------------------------------------------------------------------------------------
 Map Side Join
 ------------------------------------------------------------------------------------------------------------------------------
 
-SET hive.auto.convert.join=true;
-SELECT * FROM buck_users u INNER JOIN buck_locations l ON u.id = l.id;
-
-Mapred Local Task Succeeded . Convert the Join into MapJoin
-Number of reduce tasks is set to 0 since there's no reduce operator
-Hadoop job information for Stage-3: number of mappers: 1; number of reducers: 0
+	SET hive.auto.convert.join=true;
+	SELECT * FROM buck_users u INNER JOIN buck_locations l ON u.id = l.id;
+	
+	Mapred Local Task Succeeded . Convert the Join into MapJoin
+	Number of reduce tasks is set to 0 since there's no reduce operator
+	Hadoop job information for Stage-3: number of mappers: 1; number of reducers: 0
 
 ------------------------------------------------------------------------------------------------------------------------------
 Bucket Map Join
 ------------------------------------------------------------------------------------------------------------------------------
-set hive.optimize.bucketmapjoin=true;
-SET hive.auto.convert.join=true;
-
-SELECT * FROM buck_users u INNER JOIN buck_locations l ON u.id = l.id;
+	set hive.optimize.bucketmapjoin=true;
+	SET hive.auto.convert.join=true;
+	
+	SELECT * FROM buck_users u INNER JOIN buck_locations l ON u.id = l.id;
 
 ------------------------------------------------------------------------------------------------------------------------------
 Sorted Merge Bucket Map Join
 ------------------------------------------------------------------------------------------------------------------------------
-set hive.enforce.sortmergebucketmapjoin=false;
-set hive.auto.convert.sortmerge.join=true;
-set hive.optimize.bucketmapjoin = true;
-set hive.optimize.bucketmapjoin.sortedmerge = true;
-
-
-SET hive.auto.convert.join=false;
-SELECT * FROM buck_users u INNER JOIN buck_locations l ON u.id = l.id;
-
-No MapLocal Task to create hash table.
-Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 0
+	set hive.enforce.sortmergebucketmapjoin=false;
+	set hive.auto.convert.sortmerge.join=true;
+	set hive.optimize.bucketmapjoin = true;
+	set hive.optimize.bucketmapjoin.sortedmerge = true;
+	
+	
+	SET hive.auto.convert.join=false;
+	SELECT * FROM buck_users u INNER JOIN buck_locations l ON u.id = l.id;
+	
+	No MapLocal Task to create hash table.
+	Hadoop job information for Stage-1: number of mappers: 2; number of reducers: 0
