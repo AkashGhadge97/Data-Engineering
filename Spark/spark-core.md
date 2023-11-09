@@ -141,3 +141,26 @@
 ### Sum
 
         empDf.select(sum("salary").alias("SUM_SALARY")).show()
+
+---
+
+## OrderBy Clause
+
+        empDf.orderBy("SALARY").show()
+        
+        empDf.orderBy("SALARY").select("EMPLOYEE_ID","SALARY").show()
+
+        empDf.select("EMPLOYEE_ID","SALARY").orderBy("SALARY").show()
+
+### Order by in ascending order
+
+        empDf.select("EMPLOYEE_ID","SALARY").orderBy(col("SALARY").asc()).show()
+
+### Order by in descending order
+
+        empDf.select("EMPLOYEE_ID","SALARY").orderBy(col("SALARY").desc()).show()
+
+        empDf.select("EMPLOYEE_ID","DEPARTMENT_ID","SALARY").orderBy(col("DEPARTMENT_ID").asc(),col("SALARY").desc()).show()
+
+
+        
