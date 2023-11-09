@@ -185,5 +185,11 @@
 
                         empDf.groupBy("DEPARTMENT_ID").agg(sum("SALARY").alias("SUM_SALARY"),max("SALARY").alias("MAX_SALARY"),min("SALARY").alias("MIN_SALARY"),avg("SALARY").alias("AVG_SALARY")).show()
 
+### Group by with where clause
 
-        
+         empDf.groupBy("DEPARTMENT_ID").agg(max("SALARY").alias("MAX_SALARY")).where(col("MAX_SALARY")>=10000).show()
+
+### When Otherwise (Like Case when in SQL)
+
+
+        df = empDf.withColumn("EMPLOYEE_GRADE", when( col("SALARY") > 15000, "GRADE-1" ).when( (col("SALARY") >=10000)  & (col("SALARY") <15000), "GRADE-2"  ).otherwise("GRADE-3") )
