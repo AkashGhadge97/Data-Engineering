@@ -144,7 +144,7 @@
 
 ---
 
-## OrderBy Clause
+## Order By Clause
 
         empDf.orderBy("SALARY").show()
         
@@ -161,6 +161,29 @@
         empDf.select("EMPLOYEE_ID","SALARY").orderBy(col("SALARY").desc()).show()
 
         empDf.select("EMPLOYEE_ID","DEPARTMENT_ID","SALARY").orderBy(col("DEPARTMENT_ID").asc(),col("SALARY").desc()).show()
+
+---
+## Group By Clause
+
+        empDf.groupBy("DEPARTMENT_ID").sum("SALARY").show() 
+
+        empDf.groupBy("DEPARTMENT_ID").max("SALARY").show() 
+
+        empDf.groupBy("DEPARTMENT_ID").min("SALARY").show() 
+
+        empDf.groupBy("DEPARTMENT_ID").avg("SALARY").show() 
+
+### Group By with multiple columns
+
+        empDf.groupBy("DEPARTMENT_ID","JOB_ID").sum("SALARY").show()   
+
+        empDf.groupBy("DEPARTMENT_ID","JOB_ID").sum("SALARY","EMPLOYEE_ID").show()  
+
+### Group by using aggregate (agg) function
+
+        empDf.groupBy("DEPARTMENT_ID").agg(sum("SALARY").alias("SUM_SALARY"),max("SALARY").alias("MAX_SALARY")).show()
+
+                        empDf.groupBy("DEPARTMENT_ID").agg(sum("SALARY").alias("SUM_SALARY"),max("SALARY").alias("MAX_SALARY"),min("SALARY").alias("MIN_SALARY"),avg("SALARY").alias("AVG_SALARY")).show()
 
 
         
