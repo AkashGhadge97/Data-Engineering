@@ -114,3 +114,30 @@
 ## Drop duplicates based of specific columns
 
         empDf.dropDuplicates(["DEPARTMENT_ID", "HIRE_DATE"]).show(100)
+
+---
+
+## Aggregation Functions
+
+### Count
+                empDf.count()
+
+                empDf.select(count("salary")).show()
+
+                empDf.select(count("salary").alias("TOTAL_COUNT")).show()
+
+### Max
+
+        empDf.select(max("salary").alias("MAX_SALARY")).show()
+
+### Min
+
+        empDf.select(min("salary").alias("MIN_SALARY")).show()
+
+### Avg
+
+        empDf.select(avg("salary").alias("AVG_SALARY")).show()
+
+### Sum
+
+        empDf.select(sum("salary").alias("SUM_SALARY")).show()
