@@ -193,3 +193,18 @@
 
 
         df = empDf.withColumn("EMPLOYEE_GRADE", when( col("SALARY") > 15000, "GRADE-1" ).when( (col("SALARY") >=10000)  & (col("SALARY") <15000), "GRADE-2"  ).otherwise("GRADE-3") )
+
+## Converting Spark DataFrame to SQL Table and USe SQl Queries
+
+        empDf.createOrReplaceTempView("employee")
+        
+        spark.sql(" select * from employee limit 5").show()
+        
+        df = spark.sql(" select employee_id,salary from employee")
+        df.show(100)
+        
+        spark.sql("select department_id, sum(salary) as sum_salary from employee group by department_id").show()
+        
+        spark.sql("select employee_id, department_id, rank() over(partition by department_id order by salary desc) as 
+        rank_salary from employee").show()
+
