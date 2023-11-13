@@ -208,3 +208,83 @@
         spark.sql("select employee_id, department_id, rank() over(partition by department_id order by salary desc) as 
         rank_salary from employee").show()
 
+## Joins in Spark
+
+### Inner Join
+
+        empDf.join(deptDf, empDf.DEPARTMENT_ID == deptDf.DEPARTMENT_ID, "inner").show()
+
+        empDf.join(deptDf, empDf.DEPARTMENT_ID == deptDf.DEPARTMENT_ID, "inner").select(empDf.EMPLOYEE_ID,                 
+        empDf.DEPARTMENT_ID, deptDf.DEPARTMENT_NAME).show()
+
+### Left Join
+
+        empDf.join(deptDf, empDf.DEPARTMENT_ID == deptDf.DEPARTMENT_ID, "left").select(empDf.EMPLOYEE_ID, 
+        empDf.DEPARTMENT_ID, deptDf.DEPARTMENT_NAME).show(100)
+
+### Right Join
+
+        empDf.join(deptDf, empDf.DEPARTMENT_ID == deptDf.DEPARTMENT_ID, "right").select(empDf.EMPLOYEE_ID, 
+        empDf.DEPARTMENT_ID, deptDf.DEPARTMENT_NAME).show(100)
+
+### Full Outer Join 
+
+        empDf.join(deptDf, empDf.DEPARTMENT_ID == deptDf.DEPARTMENT_ID, "fullouter").select(empDf.EMPLOYEE_ID, 
+        empDf.DEPARTMENT_ID, deptDf.DEPARTMENT_NAME).show(100)
+
+### Self Join Using inner Join
+
+        empDf.alias("emp1").join(empDf.alias("emp2") , col("emp1.manager_id") == col("emp2.employee_id"), 
+      "inner").select(col("emp1.manager_id"), col("emp2.first_name"), col("emp2.last_name")).dropDuplicates().show(100)
+
+
+      empDf.join(deptDf, (empDf.DEPARTMENT_ID == deptDf.DEPARTMENT_ID) & (deptDf.LOCATION_ID == 1700), 
+      "inner").select(empDf.EMPLOYEE_ID, empDf.DEPARTMENT_ID, deptDf.DEPARTMENT_NAME).show()
+
+## User Defined Functions in Spark
+
+### Method-1
+
+        >>> def upperCase(in_str):
+        ...     out_str = in_str.upper()
+        ...     return out_str
+        ... 
+        >>> print(upperCase("hello"))
+        HELLO
+        >>> upperCaseUDF = udf(lambda z : upperCase(z) , StringType())
+        >>> empDf.select(col("EMPLOYEE_ID") , col("FIRST_NAME"), col("LAST_NAME"), upperCaseUDF(col("FIRST_NAME")), 
+            upperCaseUDF(col("LAST_NAME"))).show()
+
+### Method-2
+
+        >>> @udf(returnType=StringType())
+        ... def upperCaseNew(in_str):
+        ...     out_str = in_str.upper()
+        ...     return out_str
+        ... 
+        >>> empDf.select(col("EMPLOYEE_ID") , col("FIRST_NAME"), col("LAST_NAME"), upperCaseNew(col("FIRST_NAME")), 
+            upperCaseNew(col("LAST_NAME"))).show()
+
+
+## Window Functions
+
+        from pyspark.sql.window import Window
+
+        windowSpec = Window.partitionBy("DEPARTMENT_ID").orderBy("SALARY")
+
+        empDf.withColumn("salary_rank", rank().over(windowSpec)).select("DEPARTMENT_ID","SALARY","salary_rank").show(100)
+---
+        windowSpec = Window.partitionBy("DEPARTMENT_ID").orderBy(col("SALARY").desc())
+
+        empDf.withColumn("salary_rank", rank().over(windowSpec)).select("DEPARTMENT_ID","SALARY","salary_rank").show(100)
+---
+        windowSpec = Window.partitionBy("DEPARTMENT_ID").orderBy(col("SALARY").desc())
+
+        empDf.withColumn("SUM", sum("SALARY").over(windowSpec)).select("DEPARTMENT_ID","SALARY","SUM").show(100)
+---
+        windowSpec = Window.partitionBy("DEPARTMENT_ID")
+
+        empDf.withColumn("SUM", sum("SALARY").over(windowSpec)).select("DEPARTMENT_ID","SALARY","SUM").show(100)
+
+        
+
