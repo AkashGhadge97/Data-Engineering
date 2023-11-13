@@ -172,3 +172,18 @@ Q.21
 	 CASE WHEN ( avg_weather <= 15) THEN "Cold"
 		  WHEN (avg_weather >= 25) THEN "Hot"
 	      ELSE "Warm" END as weather_type from result_cte
+
+Q.23 
+
+
+	with result_cte as (
+		select *, (units*unit_price) as total_price from (select  u.product_id,u.units,
+		CASE WHEN (u.purchase_date >= p.start_date and u.purchase_Date <= p.end_date) THEN p.price end as unit_price
+		from unitsold u join prices p on u.product_id = p.product_id) d_table where unit_price is not null 
+	),
+	final_cte as (
+		select distinct product_id , sum(units) over(partition by product_id) as total_units,
+		sum(total_price) over (partition by product_id) as total_price_sum from result_cte
+	)
+	select product_id , round((total_price_sum/total_units),2) as average_price from final_cte
+
