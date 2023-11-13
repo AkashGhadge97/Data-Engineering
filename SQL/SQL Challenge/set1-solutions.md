@@ -153,3 +153,22 @@ Q.21
 
 	select employee_id,  count(team_id) over (partition by team_id ) as team_size from employee_data order by 
         employee_id
+
+ Q.22
+
+	 with weather_cte as (
+		select c.country_name as cname , w.country_id as cid ,w.weather_state cws ,w.day, 
+		sum(weather_state) over (partition by w.country_id) as weather_sum,
+	         count(weather_state) over (partition by w.country_id) as country_count 
+		from weather w left join countries c on w.country_id = c.country_id 
+		where w.day >= '2019-11-01' and w.day <= '2019-11-30'
+	),
+	result_cte as (
+	        select  distinct weather_cte.cname as country_name , (weather_cte.weather_sum/weather_cte.country_count) as 
+                avg_weather from weather_cte
+	)
+	
+	select country_name ,
+	 CASE WHEN ( avg_weather <= 15) THEN "Cold"
+		  WHEN (avg_weather >= 25) THEN "Hot"
+	      ELSE "Warm" END as weather_type from result_cte
