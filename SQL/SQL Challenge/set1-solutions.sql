@@ -178,7 +178,7 @@ Q.23
 
 	with result_cte as (
 		select *, (units*unit_price) as total_price from (select  u.product_id,u.units,
-		CASE WHEN (u.purchase_date >= p.start_date and u.purchase_Date <= p.end_date) THEN p.price end as unit_price
+		CASE WHEN (u.purchase_date >= p.start_date and u.purchase_date <= p.end_date) THEN p.price end as unit_price
 		from unitsold u join prices p on u.product_id = p.product_id) d_table where unit_price is not null 
 	),
 	final_cte as (
