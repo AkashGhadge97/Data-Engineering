@@ -148,4 +148,8 @@ Q.19
 	select distinct a.ad_id , 
 	coalesce(round(c.total_clicks/(c.total_clicks + c. total_views)*100,2),0) as CTR
 	from ads a left join clicks_views c on a.ad_id = c.ad_id
-	
+
+Q.21
+
+	select employee_id,  count(team_id) over (partition by team_id ) as team_size from employee_data order by 
+        employee_id
