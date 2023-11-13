@@ -194,7 +194,7 @@
 
         df = empDf.withColumn("EMPLOYEE_GRADE", when( col("SALARY") > 15000, "GRADE-1" ).when( (col("SALARY") >=10000)  & (col("SALARY") <15000), "GRADE-2"  ).otherwise("GRADE-3") )
 
-## Converting Spark DataFrame to SQL Table and USe SQl Queries
+## Converting Spark DataFrame to SQL Table and use SQL Queries
 
         empDf.createOrReplaceTempView("employee")
         
