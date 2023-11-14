@@ -193,3 +193,8 @@ Q.24
 	from (select *, rank() over (partition by player_id order by event_date) as login_rank from activity) as t
 	where login_rank = 1
 
+Q.25 
+
+	select player_id , device_id
+	from (select *, rank() over (partition by player_id order by event_date) as device_rank from activity) as t
+	where device_rank = 1;
