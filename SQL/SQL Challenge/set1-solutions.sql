@@ -187,3 +187,9 @@ Q.23
 	)
 	select product_id , round((total_price_sum/total_units),2) as average_price from final_cte
 
+Q.24
+
+	select player_id , event_date as first_login
+	from (select *, rank() over (partition by player_id order by event_date) as login_rank from activity) as t
+	where login_rank = 1
+
