@@ -198,3 +198,8 @@ Q.25
 	select player_id , device_id
 	from (select *, rank() over (partition by player_id order by event_date) as device_rank from activity) as t
 	where device_rank = 1;
+
+Q.26
+
+	select distinct *from (select p.product_name, sum(o.unit) over (partition by o.product_id order by o.unit) as unit
+        from orders o join products p on o.product_id = p.product_id  where o.order_date >= '2020-02-01' and o.order_date<= '2020-02-28')  t where unit >= 100
