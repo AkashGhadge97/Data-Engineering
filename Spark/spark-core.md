@@ -286,5 +286,64 @@
 
         empDf.withColumn("SUM", sum("SALARY").over(windowSpec)).select("DEPARTMENT_ID","SALARY","SUM").show(100)
 
+## Broadcast Join
+
+        from pyspark.sql.functions import *
+
+        spark.conf.set("spark.sql.autoBroadcastJoinThreshold", 104857600)
+
+        empDf.join(broadcast(deptDf), empDf.DEPARTMENT_ID == deptDf.DEPARTMENT_ID, "inner").select(empDf.EMPLOYEE_ID, empDf.DEPARTMENT_ID, deptDf.DEPARTMENT_NAME).show(100)
+
+## Writing datafrme to file
+
+        resultDf.write.mode("overwrite").option("header",True).save("/output/result")
+
+        resultDf.write.mode("overwrite").option("header",True).format("csv").save("/output/result")
+
+        resultDf.write.mode("append").option("header",True).format("csv").save("/output/result")
+
+        resultDf.write.mode("overwrite").partitionBy("DEPARTMENT_NAME").option("header",True).format("csv").save("/output/result")
+
+## Repartition and Coalesce
+
+With repartition we can increase and decrease the number of partitions but with coalesce we can only decrease number of partitions
+
+        empDf.rdd.getNumPartitions()
+
+        deptDf.rdd.getNumPartitions()
+
+        resultDf.rdd.getNumPartitions()
+
+        newDf = resultDf.repartition(10)
+        newDf.rdd.getNumPartitions()
+
+        df1 = newDf.repartition(2)
+        df1.rdd.getNumPartitions()
+
+        newDf.rdd.getNumPartitions()
+        df2 = newDf.coalesce(20)
+        df2.rdd.getNumPartitions()
+
+        df3 = newDf.coalesce(5)
+        df3.rdd.getNumPartitions()
+
+        resultDf.coalesce(1).write.mode("overwrite").option("header",True).format("csv").save("/output/result")  #Writing the file as only one partition
+
+## Reading the JSON file in Spark dataframe
+
+        jsonDf = spark.read.json("/input_data/jsonexample.json")
+        jsonDf.show()
+        jsonDf.printSchema()
+
+        jsonDf.select(jsonDf.Text1, jsonDf.Array1).show()
+
+        jsonDf.select(jsonDf.Text1, jsonDf.Array1[2]).show()
+
+        jsonDf.select(jsonDf.Text1, explode(jsonDf.Array1)).show()
+
+        
+
+        
+
         
 
