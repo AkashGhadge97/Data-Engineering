@@ -255,8 +255,38 @@ only showing top 20 rows
 2074
 
 **>>> spdf.select(count("Track").alias("Total Tracks")).show()**
+
 +------------+
 |Total Tracks|
 +------------+
 |       20594|
 +------------+
+
+**>>> spdf2 = spdf.withColumn("Likes",col("Likes").cast("integer")).withColumn("Comments",col("Comments").cast("integer")).withColumn("Views",col("Views").cast("integer"))**
+**>>> spdf2.printSchema()**
+root
+ |-- Artist: string (nullable = true)
+ |-- Track: string (nullable = true)
+ |-- Album: string (nullable = true)
+ |-- Album_type: string (nullable = true)
+ |-- Danceability: string (nullable = true)
+ |-- Energy: string (nullable = true)
+ |-- Loudness: double (nullable = true)
+ |-- Speechiness: double (nullable = true)
+ |-- Acousticness: double (nullable = true)
+ |-- Instrumentalness: double (nullable = true)
+ |-- Liveness: double (nullable = true)
+ |-- Valence: double (nullable = true)
+ |-- Tempo: double (nullable = true)
+ |-- Duration_min: double (nullable = true)
+ |-- Title: string (nullable = true)
+ |-- Channel: string (nullable = true)
+ |-- Views: integer (nullable = true)
+ |-- Likes: integer (nullable = true)
+ |-- Comments: integer (nullable = true)
+ |-- Licensed: string (nullable = true)
+ |-- official_video: string (nullable = true)
+ |-- Stream: string (nullable = true)
+ |-- EnergyLiveness: string (nullable = true)
+ |-- most_playedon: string (nullable = true)
+
