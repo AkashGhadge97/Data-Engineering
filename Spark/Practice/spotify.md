@@ -1,5 +1,5 @@
->>> **spDf = spark.read.csv("/input/spotify.csv",header=True,inferSchema=True)**
->>> **spDf.printSchema()**                                                          
+**>>> spDf = spark.read.csv("/input/spotify.csv",header=True,inferSchema=True)**
+**>>> spDf.printSchema()**                                                          
 root
  |-- Artist: string (nullable = true)
  |-- Track: string (nullable = true)
@@ -26,7 +26,7 @@ root
  |-- EnergyLiveness: string (nullable = true)
  |-- most_playedon: string (nullable = true)
 
->>> **spDf.show()**
+**>>> spDf.show()**
 +--------------------+--------------------+--------------------+----------+------------+------+--------+-----------+------------+----------------+--------+-------+-------+------------------+--------------------+--------------------+------------+---------+--------+--------+--------------+------------+------------------+-------------+
 |              Artist|               Track|               Album|Album_type|Danceability|Energy|Loudness|Speechiness|Acousticness|Instrumentalness|Liveness|Valence|  Tempo|      Duration_min|               Title|             Channel|       Views|    Likes|Comments|Licensed|official_video|      Stream|    EnergyLiveness|most_playedon|
 +--------------------+--------------------+--------------------+----------+------------+------+--------+-----------+------------+----------------+--------+-------+-------+------------------+--------------------+--------------------+------------+---------+--------+--------+--------------+------------+------------------+-------------+
@@ -52,7 +52,7 @@ root
 |Red Hot Chili Pep...|    Dark Necessities|         The Getaway|     album|         0.7| 0.742|  -6.777|     0.0716|      0.0722|          0.0199|    0.11|  0.197| 91.959| 5.033333333333333|Red Hot Chili Pep...|Red Hot Chili Pep...| 440037964.0|2094182.0| 56516.0|    True|          True| 385677873.0| 6.745454545454545|      Youtube|
 +--------------------+--------------------+--------------------+----------+------------+------+--------+-----------+------------+----------------+--------+-------+-------+------------------+--------------------+--------------------+------------+---------+--------+--------+--------------+------------+------------------+-------------+
 
->>> **spDf.select("Artist","Views","Likes","Comments").show()**
+**>>> spDf.select("Artist","Views","Likes","Comments").show()**
 +--------------------+------------+---------+--------+
 |              Artist|       Views|    Likes|Comments|
 +--------------------+------------+---------+--------+
@@ -77,4 +77,31 @@ root
 |Red Hot Chili Pep...|  86637926.0| 434837.0| 16029.0|
 |Red Hot Chili Pep...| 440037964.0|2094182.0| 56516.0|
 +--------------------+------------+---------+--------+
+only showing top 20 rows
+
+**>>> spDf.select(col("Artist").alias("Asrtist_Name"),col("Views").alias("Total_Views"),col("Likes").alias("Total_Likes"),col("Comments").alias("Total_Comments")).show()**
++--------------------+------------+-----------+--------------+
+|        Asrtist_Name| Total_Views|Total_Likes|Total_Comments|
++--------------------+------------+-----------+--------------+
+|            Gorillaz| 693555221.0|  6220896.0|      169907.0|
+|            Gorillaz|  72011645.0|  1079128.0|       31003.0|
+|            Gorillaz|   8435055.0|   282142.0|        7399.0|
+|            Gorillaz| 211754952.0|  1788577.0|       55229.0|
+|            Gorillaz| 618480958.0|  6197318.0|      155930.0|
+|            Gorillaz| 259021161.0|  1844658.0|       72008.0|
+|            Gorillaz|    451996.0|    11686.0|         241.0|
+|            Gorillaz|   1010982.0|    17675.0|         260.0|
+|            Gorillaz|  24459820.0|   739527.0|       20296.0|
+|            Gorillaz| 154761056.0|  1386920.0|       39240.0|
+|Red Hot Chili Pep...|1018811259.0|  4394471.0|      121452.0|
+|Red Hot Chili Pep...| 246687714.0|  1213572.0|       32761.0|
+|Red Hot Chili Pep...| 336635759.0|  1740224.0|       32573.0|
+|Red Hot Chili Pep...| 435121530.0|  1890900.0|       37069.0|
+|Red Hot Chili Pep...| 673528656.0|  3140356.0|       60091.0|
+|Red Hot Chili Pep...| 320871237.0|  1272266.0|       37004.0|
+|Red Hot Chili Pep...| 324228662.0|  1456622.0|       49461.0|
+|Red Hot Chili Pep...| 179005296.0|   784717.0|       20084.0|
+|Red Hot Chili Pep...|  86637926.0|   434837.0|       16029.0|
+|Red Hot Chili Pep...| 440037964.0|  2094182.0|       56516.0|
++--------------------+------------+-----------+--------------+
 only showing top 20 rows
