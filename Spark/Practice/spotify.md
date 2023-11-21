@@ -196,3 +196,67 @@ only showing top 20 rows
 |           Radiohead|               Creep|         Pablo Honey|     album|       0.515|  0.43|  -9.935|     0.0372|      0.0097|         1.33E-4|   0.129|  0.104| 91.844| 3.977333333333333|   Radiohead - Creep|           Radiohead| 763497849.0| 4777393.0|147276.0|    True|          True|1101854725.0| 3.333333333333333|      Spotify|
 +--------------------+--------------------+--------------------+----------+------------+------+--------+-----------+------------+----------------+--------+-------+-------+------------------+--------------------+--------------------+------------+----------+--------+--------+--------------+------------+------------------+-------------+
 only showing top 20 rows
+
+>>> **spdf.distinct().show()**
++--------------------+--------------------+--------------------+-----------+------------+------+--------+-----------+------------+----------------+--------+-------+-------+------------------+--------------------+--------------------+-----------+---------+--------+--------+--------------+-----------+------------------+-------------+
+|              Artist|               Track|               Album| Album_type|Danceability|Energy|Loudness|Speechiness|Acousticness|Instrumentalness|Liveness|Valence|  Tempo|      Duration_min|               Title|             Channel|      Views|    Likes|Comments|Licensed|official_video|     Stream|    EnergyLiveness|most_playedon|
++--------------------+--------------------+--------------------+-----------+------------+------+--------+-----------+------------+----------------+--------+-------+-------+------------------+--------------------+--------------------+-----------+---------+--------+--------+--------------+-----------+------------------+-------------+
+|     Michael Jackson|Rock with You - S...|        Off the Wall|      album|       0.808| 0.535| -12.521|     0.0353|       0.179|         9.91E-5|   0.158|  0.848|114.031|3.6771166666666666|Michael Jackson -...|  michaeljacksonVEVO|301845823.0|2269865.0| 87490.0|    True|          True|346137424.0| 3.386075949367089|      Spotify|
+|       Frank Sinatra|Santa Claus Is Co...|Christmas Songs b...|      album|       0.646| 0.204| -11.957|     0.0565|       0.826|             0.0|   0.312|  0.688|140.281|2.5773333333333333|Santa Claus is Co...|          Sands-show|  1679701.0|  23726.0|   533.0|   False|         False| 88041370.0|0.6538461538461539|      Spotify|
+|         Hans Zimmer|                Time|Inception (Music ...|      album|       0.286|0.0968| -16.806|     0.0323|       0.178|           0.696|  0.0861| 0.0395| 62.881|            4.5926|Hans Zimmer - Tim...|    WaterTower Music|  2253213.0|  32073.0|   982.0|    True|          True|274717861.0| 1.124274099883856|      Spotify|
+|            Bee Gees|       Stayin' Alive|Staying Alive (Or...|compilation|       0.707| 0.535| -19.793|     0.0436|       0.113|         0.00615|  0.0884|  0.641|103.644|1.5477833333333333|Bee Gees - Stayin...|         BeeGeesVEVO|281066254.0|2720170.0| 71642.0|    True|          True|134009247.0| 6.052036199095022|      Youtube|
+|       The Offspring|  Staring At The Sun|           Americana|      album|       0.403| 0.952|  -3.925|      0.202|       0.259|             0.0|   0.123|  0.729| 87.833|           2.22645|  Staring At The Sun|The Offspring - T...|  4605524.0|  45728.0|    99.0|    True|          True| 53918632.0| 7.739837398373983|      Spotify|
+|            Ice Cube|Gangsta Rap Made ...|         Raw Footage|      album|        0.81| 0.745|  -5.431|      0.097|     0.00712|          2.1E-5|   0.321|  0.388| 87.019| 4.694216666666667|Ice Cube - Gangst...|Ice Cube / Cubevi...|  3462419.0|  62675.0|  1861.0|   False|         False| 52324827.0|2.3208722741433023|      Spotify|
+|         Céline Dion|"My Heart Will Go...|Let's Talk About ...|      album|       0.428| 0.276| -11.729|     0.0312|       0.732|         5.33E-6|   0.117| 0.0382| 99.195| 4.666666666666667|CELINE DION: My h...|      TommySuper2011|  6895026.0|  71541.0|  2827.0|   False|         False|430022654.0| 2.358974358974359|      Spotify|
+|         Gabry Ponte|Call Me (with R3H...|Call Me (with R3H...|     single|       0.398| 0.956|  -4.429|      0.329|     0.00935|          0.0038|   0.142|  0.269|106.581|2.9718333333333335|Gabry Ponte, R3HA...|         Gabry Ponte|  2755997.0|  33037.0|   342.0|    True|          True| 48546790.0| 6.732394366197183|      Spotify|
+|       George Strait|I Cross My Heart ...|        Pure Country|      album|       0.526| 0.442| -10.133|     0.0259|       0.267|         5.49E-5|   0.106|  0.284|131.055| 3.533333333333333|George Strait - I...|    GeorgeStraitVEVO| 51666154.0| 318707.0| 15094.0|    True|          True| 69432226.0| 4.169811320754717|      Spotify|
+|    Shekhar Ravjiani|   Jhoome Jo Pathaan|             Pathaan|     single|       0.817| 0.738|  -7.639|     0.0748|      0.0964|             0.0|   0.331|  0.616|104.964|            3.4694|Jhoome Jo Pathaan...|                 YRF|195454813.0|3334223.0|185883.0|    True|          True| 22899885.0| 2.229607250755287|      Youtube|
+|        Van Morrison|Into the Mystic -...|           Moondance|      album|       0.608| 0.524| -10.266|     0.0309|       0.367|         0.00254|   0.115|  0.797| 86.204|3.4268833333333335|Van Morrison - In...|               RHINO|  4302880.0|  38657.0|  1371.0|    True|          True|259257572.0| 4.556521739130435|      Spotify|
+|Dimitri Vegas & L...|         Say My Name|         Say My Name|     single|       0.729| 0.788|  -4.832|     0.0908|      0.0703|             0.0|   0.115|  0.857|118.039| 2.658933333333333|Dimitri Vegas & L...|Dimitri Vegas & L...|  3877674.0|  50981.0|  1627.0|   False|          True|146207284.0| 6.852173913043479|      Spotify|
+|Dimitri Vegas & L...|      Sweet Caroline|      Sweet Caroline|     single|       0.302|   0.8|  -4.032|     0.0376|     0.00596|         5.16E-5|   0.142|  0.328|149.939| 3.574866666666667|Dimitri Vegas & L...|Dimitri Vegas & L...|  3877674.0|  50981.0|  1627.0|   False|          True|  4096818.0| 5.633802816901409|      Spotify|
+|        Cyndi Lauper|     Time After Time|    She's So Unusual|      album|       0.726| 0.449|  -9.206|     0.0286|       0.487|         1.34E-6|  0.0824|  0.294|130.388| 4.022216666666667|Cyndi Lauper - Ti...|     CyndiLauperVEVO|473942502.0|2118208.0| 68822.0|    True|          True|552756900.0| 5.449029126213592|      Spotify|
+|     Cristian Castro|           Resistiré|           Resistiré|     single|        0.45| 0.878|  -4.592|     0.0827|      0.0071|             0.0|  0.0908|  0.744|199.844|4.2073833333333335|Resistiré México ...| Warner Music México| 15922754.0| 260404.0| 14941.0|    True|          True| 48533462.0| 9.669603524229075|      Spotify|
+|        Rocío Dúrcal|La Gata Bajo la L...|Lo Mejor De Lo Mejor|      album|       0.499| 0.652|  -5.784|     0.0341|        0.73|             0.0|   0.643|  0.484| 88.321|           3.58155|Rocío Dúrcal - La...|        Rocío Dúrcal|  3572594.0|  33610.0|   846.0|   False|          True|145145018.0|1.0139968895800933|      Spotify|
+| Gustavo Santaolalla|All Gone (No Escape)|      The Last of Us|      album|        0.14|0.0739| -22.458|     0.0437|       0.916|           0.947|  0.0961| 0.0313|141.524|           2.90555|Gustavo Santaolal...| SonySoundtracksVEVO|    46931.0|   1038.0|    29.0|    True|          True| 11028195.0|0.7689906347554629|      Spotify|
+|Los Cadetes De Li...|  Cruzando el Puente| 4 Decadas de Exitos|      album|       0.803| 0.745|  -6.155|      0.039|       0.179|         0.00687|  0.0417|  0.964|111.417|2.6842166666666665|Cruzando el Puent...|      irodriguez2062|   100482.0|   1188.0|    21.0|   False|         False| 14658092.0| 17.86570743405276|      Spotify|
+|    Sukhwinder Singh|"Chaiyya Chaiyya ...|Bollywood's Music...|      album|       0.786| 0.579| -14.913|      0.142|       0.186|             0.0|   0.118|  0.481| 90.012|           6.94355|Chal Chaiya Chaiy...|  90s bollywood love| 28042161.0| 193772.0|  3540.0|   False|         False| 35796226.0| 4.906779661016949|      Spotify|
+|      Sadhana Sargam|      Manmadhane Nee|Manmadhan (Origin...|      album|       0.667| 0.772|  -6.661|     0.0498|       0.349|         1.06E-4|   0.355|  0.429| 89.986|            4.5356|Manmadhan | Manma...|   Think Music India| 11842836.0| 129755.0|  3403.0|   False|         False| 12833849.0| 2.174647887323944|      Spotify|
++--------------------+--------------------+--------------------+-----------+------------+------+--------+-----------+------------+----------------+--------+-------+-------+------------------+--------------------+--------------------+-----------+---------+--------+--------+--------------+-----------+------------------+-------------+
+only showing top 20 rows
+
+>>> **spdf.distinct().select("Artist").show()**
++--------------------+
+|              Artist|
++--------------------+
+|     Michael Jackson|
+|       Frank Sinatra|
+|         Hans Zimmer|
+|            Bee Gees|
+|       The Offspring|
+|            Ice Cube|
+|         Céline Dion|
+|         Gabry Ponte|
+|       George Strait|
+|    Shekhar Ravjiani|
+|        Van Morrison|
+|Dimitri Vegas & L...|
+|Dimitri Vegas & L...|
+|        Cyndi Lauper|
+|     Cristian Castro|
+|        Rocío Dúrcal|
+| Gustavo Santaolalla|
+|Los Cadetes De Li...|
+|    Sukhwinder Singh|
+|      Sadhana Sargam|
++--------------------+
+only showing top 20 rows
+
+**>>>  spdf.dropDuplicates(["Artist"]).count()**
+2074
+
+**>>> spdf.select(count("Track").alias("Total Tracks")).show()**
++------------+
+|Total Tracks|
++------------+
+|       20594|
++------------+
