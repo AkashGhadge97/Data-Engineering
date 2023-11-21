@@ -109,3 +109,7 @@ only showing top 20 rows
 |Red Hot Chili Pep...| 440037964.0|  2094182.0|       56516.0|
 +--------------------+------------+-----------+--------------+
 only showing top 20 rows
+
+**>>> spdf.count()**
+20594
+
