@@ -1,4 +1,5 @@
 **>>> spDf = spark.read.csv("/input/spotify.csv",header=True,inferSchema=True)**
+
 **>>> spDf.printSchema()**            
 
 root
@@ -294,3 +295,26 @@ root
  |-- EnergyLiveness: string (nullable = true)
  |-- most_playedon: string (nullable = true)
 
+>>> spdf.select(max("Likes")).show()
+
++----------+
+|max(Likes)|
++----------+
+| 607523565|
++----------+
+
+>>> spdf.select(max("Views")).show()
+
++----------+
+|max(Views)|
++----------+
+|2133459242|
++----------+
+
+>>> spdf.select(max("Comments")).show()
+
++-------------+
+|max(Comments)|
++-------------+
+|    190851352|
++-------------+
