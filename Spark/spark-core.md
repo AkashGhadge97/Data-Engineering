@@ -1,6 +1,6 @@
 # Spark Shell Commands
 
-## Import resuiqres functions to create schema and for data types
+## Import required functions to create schema and for data types
 
         from pyspark.sql.types import StructType,StructField, StringType, IntegerType
 
