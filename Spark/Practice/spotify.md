@@ -369,3 +369,31 @@ only showing top 10 rows
 |           Gotye|Somebody That I U...|      Making Mirrors|     album|       0.864| 0.495|  -7.036|      0.037|       0.591|         1.33E-4|  0.0992|   0.72|129.062| 4.082883333333333|Gotye - Somebody ...|       gotyemusic|2057215604|14580661|  792986|    True|          True|1318267448.0|  4.98991935483871|      Youtube|
 +----------------+--------------------+--------------------+----------+------------+------+--------+-----------+------------+----------------+--------+-------+-------+------------------+--------------------+-----------------+----------+--------+--------+--------+--------------+------------+------------------+-------------+
 only showing top 10 rows
+
+**>>> spdf.groupBy("Artist").sum("Likes").show()**
+
++--------------------+----------+
+|              Artist|sum(Likes)|
++--------------------+----------+
+|          Snoop Dogg|  16674468|
+|      The Black Keys|   2564135|
+|            Chinmayi|   1942656|
+|          Eurythmics|  13980491|
+|              *NSYNC|   4233423|
+|      Jarabe De Palo|   2602323|
+|     Johannes Brahms|    669558|
+|              Pesado|    930529|
+|        Elvis Crespo|   2366112|
+|         Exaltasamba|   1102493|
+|        Yann Tiersen|    757185|
+|     Little Big Town|   2269364|
+|    Parokya Ni Edgar|    265398|
+|                 Guè|    182150|
+|  Fabrizio Paterlini|     25098|
+|              Grimes|   3622744|
+|     Luther Vandross|   2058174|
+|Mi Banda El Mexicano|    211941|
+|Daryl Hall & John...|   6964996|
+|Huey Lewis & The ...|   1001710|
++--------------------+----------+
+only showing top 20 rows
