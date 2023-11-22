@@ -295,7 +295,7 @@ root
  |-- EnergyLiveness: string (nullable = true)
  |-- most_playedon: string (nullable = true)
 
->>> spdf.select(max("Likes")).show()
+**>>> spdf.select(max("Likes")).show()**
 
 +----------+
 |max(Likes)|
@@ -303,7 +303,7 @@ root
 | 607523565|
 +----------+
 
->>> spdf.select(max("Views")).show()
+**>>> spdf.select(max("Views")).show()**
 
 +----------+
 |max(Views)|
@@ -311,7 +311,7 @@ root
 |2133459242|
 +----------+
 
->>> spdf.select(max("Comments")).show()
+**>>> spdf.select(max("Comments")).show()**
 
 +-------------+
 |max(Comments)|
