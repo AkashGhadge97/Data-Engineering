@@ -198,6 +198,7 @@ only showing top 20 rows
 only showing top 20 rows
 
 >>> **spdf.distinct().show()**
+
 +--------------------+--------------------+--------------------+-----------+------------+------+--------+-----------+------------+----------------+--------+-------+-------+------------------+--------------------+--------------------+-----------+---------+--------+--------+--------------+-----------+------------------+-------------+
 |              Artist|               Track|               Album| Album_type|Danceability|Energy|Loudness|Speechiness|Acousticness|Instrumentalness|Liveness|Valence|  Tempo|      Duration_min|               Title|             Channel|      Views|    Likes|Comments|Licensed|official_video|     Stream|    EnergyLiveness|most_playedon|
 +--------------------+--------------------+--------------------+-----------+------------+------+--------+-----------+------------+----------------+--------+-------+-------+------------------+--------------------+--------------------+-----------+---------+--------+--------+--------------+-----------+------------------+-------------+
@@ -225,6 +226,7 @@ only showing top 20 rows
 only showing top 20 rows
 
 >>> **spdf.distinct().select("Artist").show()**
+
 +--------------------+
 |              Artist|
 +--------------------+
@@ -252,6 +254,7 @@ only showing top 20 rows
 only showing top 20 rows
 
 **>>>  spdf.dropDuplicates(["Artist"]).count()**
+
 2074
 
 **>>> spdf.select(count("Track").alias("Total Tracks")).show()**
@@ -262,8 +265,9 @@ only showing top 20 rows
 |       20594|
 +------------+
 
-**>>> spdf2 = spdf.withColumn("Likes",col("Likes").cast("integer")).withColumn("Comments",col("Comments").cast("integer")).withColumn("Views",col("Views").cast("integer"))**
+**>>> spdf2=spdf.withColumn("Likes",col("Likes").cast("integer")).withColumn("Comments",col("Comments").cast("integer")).withColumn("Views",col("Views").cast("integer"))**
 **>>> spdf2.printSchema()**
+
 root
  |-- Artist: string (nullable = true)
  |-- Track: string (nullable = true)
