@@ -511,3 +511,15 @@ only showing top 20 rows
 |Huey Lewis & The ...|   1001710|
 +--------------------+----------+
 only showing top 20 rows
+
+**>>> spdf.write.mode("overwrite").save("/output/")**
+
+**>>> spdf.getNumPartitions()**
+
+**>>> spdf.rdd.getNumPartitions()**
+
+2
+
+**>>> spDF = spdf.repartition(1)**
+
+**>>> spDF.write.mode("overwrite").save("/output/new/")**
