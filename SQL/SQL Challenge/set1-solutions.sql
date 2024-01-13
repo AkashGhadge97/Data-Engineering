@@ -203,3 +203,8 @@ Q.26
 
 	select distinct *from (select p.product_name, sum(o.unit) over (partition by o.product_id order by o.unit) as unit
         from orders o join products p on o.product_id = p.product_id  where o.order_date >= '2020-02-01' and o.order_date<= '2020-02-28')  t where unit >= 100
+
+Q.27
+
+	select *from users where mail REGEXP '^[A-Za-z][A-Za-z0-9_\.\-]*@leetcode\\.com$'
+
