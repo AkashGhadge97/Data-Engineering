@@ -207,4 +207,27 @@ Q.26
 Q.27
 
 	select *from users where mail REGEXP '^[A-Za-z][A-Za-z0-9_\.\-]*@leetcode\\.com$'
+Q.28 
+
+	with derived_data_one as (
+		select 
+			c.customer_id,
+	    		c.name,
+	    		CASE 
+				WHEN month(o.order_date) = 6 THEN (p.price*o.quantity)
+			END as june_spent,
+	    	 	CASE 
+				WHEN month(o.order_date) = 7 THEN (p.price*o.quantity)
+			END as july_spent
+	    	from customers c join orders o on o.customer_id = c.customer_id join product p on o.product_id = p.product_id where o.order_date 
+	),
+	derived_data_two as 
+	(
+		select  distinct customer_id, 
+				 name, 
+		   		 sum(june_spent) over (partition by customer_id, name) as june_total_spent,
+		                 sum(july_spent) over (partition by customer_id, name) as july_total_spent
+	 from derived_data_one
+	)
+       select customer_id , name from derived_data_two  where june_total_spent >= 100 and july_total_spent >=100
 
