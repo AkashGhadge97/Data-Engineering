@@ -241,3 +241,8 @@ Q.28
  
 	select q.id , q.year,coalesce(n.npv,0) as npv 
 	from queries q left join npv n on q.id = n.id and q.year = n.year
+	
+Q.31
+	
+	select q.id , q.year,coalesce(n.npv,0) as npv 
+	from queries q left join npv n on q.id = n.id and q.year = n.year
