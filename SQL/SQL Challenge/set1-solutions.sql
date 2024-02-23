@@ -235,3 +235,9 @@ Q.28
  
 	select c.title from content c join tvprogram t 
 	on c.content_id = t.content_id where month(t.program_date) = 6 and c.kids_content = 'Y'
+
+ 
+ Q.30 
+ 
+	select q.id , q.year,coalesce(n.npv,0) as npv 
+	from queries q left join npv n on q.id = n.id and q.year = n.year
