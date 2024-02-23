@@ -231,3 +231,7 @@ Q.28
 	)
        select customer_id , name from derived_data_two  where june_total_spent >= 100 and july_total_spent >=100
 
+ Q.29
+ 
+	select c.title from content c join tvprogram t 
+	on c.content_id = t.content_id where month(t.program_date) = 6 and c.kids_content = 'Y'
