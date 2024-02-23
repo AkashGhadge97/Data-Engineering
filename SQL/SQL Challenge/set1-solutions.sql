@@ -246,3 +246,21 @@ Q.31
 	
 	select q.id , q.year,coalesce(n.npv,0) as npv 
 	from queries q left join npv n on q.id = n.id and q.year = n.year
+
+Q.32.
+
+	select coalesce(eun.unique_id,null) as unique_id,e.name 
+	from Employeeuni eun right join Employees e on eun.id = e.id
+
+Q.33
+
+	select * from 
+	(select u.name , coalesce(sum(r.distance),0) as travelled_distnace 
+	from users u left join rides r on 
+	u.id = r.user_id  GROUP BY u.name) t 
+	order by travelled_distnace desc , name
+
+q.34
+
+	select *from (select p.product_name , sum(o.unit) as total_units from products p 
+	join orders o on p.product_id = o.product_id where month(o.order_date) = 2  group by p.product_name) t where total_units >= 100
