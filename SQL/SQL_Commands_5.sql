@@ -29,7 +29,7 @@ select *,
       sum(sales_amount) over(order by sales_date rows between unbounded preceding and unbounded following) as prev_plus_next_sales_sum
 from daily_sales;
 
-# Alternate way to esclude computation of current row
+# Alternate way to exclude computation of current row
 select *,
       sum(sales_amount) over(order by sales_date rows between unbounded preceding and unbounded following) - sales_amount as prev_plus_next_sales_sum
 from daily_sales;
